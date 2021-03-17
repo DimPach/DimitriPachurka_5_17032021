@@ -1,0 +1,35 @@
+.col-sm-4 {
+    margin-bottom: 25px;
+    margin-top: 55px;
+}
+
+.accroche {
+    max-height: 400px;
+}
+
+.home-img {
+    max-height: 400px;
+    min-width: 100%;
+    object-fit: cover
+}
+
+.form-select {
+    display: inline;
+    width: 30%;
+}
+
+.card {
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+footer {
+    background-color: lightgrey;
+}
