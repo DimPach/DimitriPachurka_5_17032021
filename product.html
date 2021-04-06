@@ -9,30 +9,43 @@
     <title>Orinoco</title>
 </head>
 <body>
-     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Orinoco</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
-          </div>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"><img src="Images/logo_Orinoco.PNG" alt="Logo Orinoco"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="panier.html">Panier</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+      <template id="templateApp">
+        <div class="col-sm-4">
+          <div class="card" style="width: 18rem;">
+              <img src="Images\nikon-d5300_1381853667__450_400.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Appareil Photo</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item lentille">Lentille :
+                  <select class="form-select" aria-label="Default select example">
+                      <option selected></option>
+                      
+                    </select>
+                </li>
+                <li class="list-group-item prix"></li>
+                <button>Ajouter au panier</button>
+              </ul>
+            </div>
         </div>
-      </nav>
+      </template>
 
 
     <footer>

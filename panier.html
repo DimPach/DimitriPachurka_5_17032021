@@ -9,30 +9,101 @@
     <title>Orinoco</title>
 </head>
 <body>
-     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Orinoco</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"><img src="Images/logo_Orinoco.PNG" alt="Logo Orinoco"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="panier.html">Panier</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+      <section class="container">
+        <h2>Votre panier</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Produit</th>
+              <th scope="col">Quantité</th>
+              <th scope="col">Prix</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                </select>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                </select>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                </select>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="container">
+        <h2>Veuillez remplir le formulaire</h2>
+        <form class="row g-3">
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Prénom</label>
+            <input type="email" class="form-control" id="inputEmail4">
           </div>
-        </div>
-      </nav>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Nom</label>
+            <input type="password" class="form-control" id="inputPassword4">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Addresse de facturation</label>
+            <input type="text" class="form-control" id="inputAddress">
+          </div>
+          <div class="col-md-6">
+            <label for="inputCity" class="form-label">Adresse E-mail</label>
+            <input type="text" class="form-control" id="inputCity">
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Passer commande</button>
+          </div>
+        </form>
+      </section>
 
 
     <footer>
