@@ -21,6 +21,7 @@
     min-width: 286px;
     max-height: 190px;
     max-width: 286px;
+    object-fit: cover;
 }
 
 .home-img {

@@ -27,11 +27,4 @@ fetch('http://localhost:3000/api/cameras')
     }
 
 
-    document.addEventListener('click', () => {})
-
-    /*
-    boutonAjoutPanier.addEventListener('click', () => {})
-    boutonDeleteProduit.addEventListener('click', () => {})
-    boutonPaiment.addEventListener('click', () => {})
-    */
     

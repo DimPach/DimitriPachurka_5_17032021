@@ -3,7 +3,6 @@ const getID = () => {
 }
 
 const Id = getID();
-console.log(Id);
 
 
 fetch(`http://localhost:3000/api/cameras/${Id}`)
@@ -11,8 +10,8 @@ fetch(`http://localhost:3000/api/cameras/${Id}`)
     return response.json();
 })
 .then(datas => {
-    console.log(datas)
     displayProduct(datas);
+    stockerProduit(datas);
 })
 .catch(err => {
     console.log(err);
@@ -33,3 +32,28 @@ const displayProduct = (data) => {
     
     document.querySelector('.card-img-top').setAttribute("src", `${data.imageUrl}`);
 }
+
+
+
+const stockerProduit = (data) => {
+    let btnProduct = document.querySelector('.btn');
+
+    btnProduct.addEventListener('click', () => {
+        
+        let produitStock = data;
+        if (localStorage.getItem('products') == null){
+
+            let productAll = [];
+            productAll.push(produitStock);
+            localStorage.setItem('products', JSON.stringify(productAll));
+        } 
+        else {
+            let tabProduct = JSON.parse(localStorage.getItem('products'));
+            tabProduct.push(produitStock);
+            localStorage.setItem('products', JSON.stringify(tabProduct));
+        }
+    })
+
+}
+
+
