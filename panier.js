@@ -20,7 +20,6 @@ let totalPrice = 0
         let valeurQty = 1;
         
         totalPrice = totalPrice + prix
-        console.log(prix)
         newPrice.textContent = totalPrice;
 
         inputChange.addEventListener('change', event => {
