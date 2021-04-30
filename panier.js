@@ -1,7 +1,7 @@
 //logique panier localstorage
 
 let produitsPanier = JSON.parse(localStorage.getItem('products'));
-
+let totalPrice = 0
 
  for (let i = 0 ; i < produitsPanier.length ; i++) {
     fetch(`http://localhost:3000/api/cameras/${produitsPanier[i].id}`)
@@ -11,20 +11,27 @@ let produitsPanier = JSON.parse(localStorage.getItem('products'));
     .then(datas => {
         let name = datas.name
         let prix = datas.price
-        console.log(prix)
-        let total = datas.price
         let option = produitsPanier[i].option
         displayProduitPanier(name, prix, option);
         
         const inputChange = document.querySelectorAll('.form-select')[i];
-        console.log(i)
+       
         const newPrice = document.querySelector('.totalPrice');
         let valeurQty = 1;
+        
+        totalPrice = totalPrice + prix
+        console.log(prix)
+        newPrice.textContent = totalPrice;
+
         inputChange.addEventListener('change', event => {
-            valeurQty = event.target.value;
-            total = valeurQty * prix;
-            newPrice.textContent = total;
-            console.log("test")
+          
+          totalPrice = totalPrice - (valeurQty * prix)
+          
+          valeurQty = event.target.value;
+          
+          totalPrice = totalPrice + (valeurQty * prix)
+          
+          newPrice.textContent = totalPrice;
         })
     })
     .catch(err => {
