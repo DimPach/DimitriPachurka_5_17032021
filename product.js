@@ -2,10 +2,10 @@ const getID = () => {
     return new URL(window.location.href).searchParams.get('id');
 }
 
-const Id = getID();
+const productId = getID();
 
 
-fetch(`http://localhost:3000/api/cameras/${Id}`)
+fetch(`http://localhost:3000/api/cameras/${productId}`)
 .then(response => {
     return response.json();
 })
@@ -37,10 +37,21 @@ const displayProduct = (data) => {
 
 const stockerProduit = (data) => {
     let btnProduct = document.querySelector('.btn');
+    let inputSelect = document.querySelector('.form-select');
+    let productOption = data.lenses[0]
+    
+    inputSelect.addEventListener('change', event => {
+      productOption = event.target.value;
+    })
 
     btnProduct.addEventListener('click', () => {
         
-        let produitStock = data;
+        let produitStock = {
+            id: productId,
+            option: productOption
+        }
+        
+        console.log(productId)
         if (localStorage.getItem('products') == null){
 
             let productAll = [];
@@ -55,5 +66,4 @@ const stockerProduit = (data) => {
     })
 
 }
-
 
