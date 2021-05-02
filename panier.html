@@ -27,7 +27,7 @@
 
       <section class="container">
         <h2 class="mt-5 mb-2">Votre panier</h2>
-        <table class="table">
+        <table class="table m-5">
           <thead>
             <tr>
               <th scope="col">Produit</th>
@@ -62,27 +62,29 @@
         </table>
       </section>
 
-      <section class="container">
+      <section class="container mb-5 ">
         <h2 class="mt-5 mb-3">Veuillez remplir le formulaire</h2>
-        <form class="row g-3">
+        <form class="row g-3 m-5">
           <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Prénom</label>
-            <input type="email" class="form-control" id="inputEmail4">
+            <label for="inputPrenom" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="inputPrenom">
           </div>
           <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Nom</label>
-            <input type="password" class="form-control" id="inputPassword4">
+            <label for="inputNom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="inputNom">
           </div>
           <div class="col-12">
             <label for="inputAddress" class="form-label">Addresse de facturation</label>
             <input type="text" class="form-control" id="inputAddress">
           </div>
           <div class="col-md-6">
-            <label for="inputCity" class="form-label">Adresse E-mail</label>
-            <input type="text" class="form-control" id="inputCity">
+            <label for="inputMail" class="form-label">Adresse E-mail</label>
+            <input type="text" class="form-control" id="inputMail">
           </div>
           <div class="col-12">
-            <button type="submit" class="btn btn-primary">Passer commande</button>
+            <a href="confirmation.html">
+              <button class="btn btn-primary">Passer commande</button>
+            </a>
           </div>
         </form>
       </section>
