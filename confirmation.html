@@ -9,45 +9,31 @@
     <title>Orinoco</title>
 </head>
 <body>
-     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Orinoco</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
-          </div>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"><img src="Images/logo_Orinoco.PNG" alt="Logo Orinoco"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Acceuil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="panier.html">Panier</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+      <div class="jumbotron jumbotron-fluid alert-success m-5 p-3">
+        <div class="container">
+          <h1 class="display-4">Merci <span class="firstName"></span>, votre commande a bien été prise en compte, à bientôt !</h1>
+          <p class="lead">Identifiant de la commande : <span class="order"></span></p>
         </div>
-      </nav>
-
-      <section class="container">
-        <h2>Merci <span class="firstName"></span>, votre commande a bien été prise en compte, merci beaucoup !</h2>
-        <h3>Identifiant de la commande : <span class="order"></span></h3>
-      </section>
-
-
-    <footer>
-        <h2>Orinoco</h2>
-        <nav>
-            <li><a href="">Contact</a></li>
-            <li><a href="">Contact</a></li>
-            <li><a href="">Contact</a></li>
-        </nav>
-    </footer>
+      </div>
 
 
 <script src="confirmation.js"></script>

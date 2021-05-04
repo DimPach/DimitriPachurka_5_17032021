@@ -69,37 +69,34 @@ confirmation.addEventListener('click', (e) => {
     let adressInput = document.querySelector('#inputAddress').value;
     let mailInput = document.querySelector('#inputMail').value;
     let villeInput = document.querySelector('#inputVille').value;
-
+    
     let contact = {
+        firstName: prenomInput,
+        lastName: nomInput,
+        address: adressInput,
+        city: villeInput,
+        email: mailInput,
+    }   
 
-    firstName: prenomInput,
-    lastName: nomInput,
-    address: adressInput,
-    city: villeInput,
-    email: mailInput,
-}
 
+    let params = {
+        'contact': contact,
+        'products': envoieProduit,
+    }
 
-let params = {
-    'contact': contact,
-    'products': envoieProduit,
-}
-
-const options = {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify(params)
-}
-console.log(options.body)
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(params)
+    }
 
     fetch('http://localhost:3000/api/cameras/order', options)
     .then(response => {
         return response.json();
     }) 
     .then(datas => {
-        console.log(datas.contact.firstName)
         window.location.replace(`confirmation.html?order=${datas.orderId}&firstName=${datas.contact.firstName}`)
     })
     .catch(err => {
