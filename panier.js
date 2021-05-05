@@ -61,15 +61,15 @@ function displayProduitPanier (name, prix, option) {
 }
 
 
-const confirmation = document.querySelector('.btn-primary');
-confirmation.addEventListener('click', (e) => {
+const confirmation = document.querySelector('.needs-validation');
+confirmation.addEventListener('submit', (e) => {
     event.preventDefault();
     let prenomInput = document.querySelector('#inputPrenom').value;
     let nomInput = document.querySelector('#inputNom').value;
     let adressInput = document.querySelector('#inputAddress').value;
     let mailInput = document.querySelector('#inputMail').value;
     let villeInput = document.querySelector('#inputVille').value;
-    
+    alert(villeInput)
     let contact = {
         firstName: prenomInput,
         lastName: nomInput,
