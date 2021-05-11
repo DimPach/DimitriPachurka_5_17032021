@@ -28,7 +28,7 @@ let envoieProduit = [];
         let valeurQty = 1;
         
         totalPrice = totalPrice + prix;
-        newPrice.textContent = totalPrice + ' €';
+        newPrice.textContent = totalPrice/100 + ".00" + ' €';
 
         inputChange.addEventListener('change', event => {
           
@@ -38,7 +38,7 @@ let envoieProduit = [];
           
           totalPrice = totalPrice + (valeurQty * prix);
           
-          newPrice.textContent = totalPrice + ' €';
+          newPrice.textContent = totalPrice/100 + ".00" + ' €';
         })
     })
     .catch(err => {
@@ -53,7 +53,7 @@ function displayProduitPanier (name, prix, option) {
     const clone = document.importNode(tempPanier.content, true);
 
     clone.querySelector('.productName').textContent = name;
-    clone.querySelector('.productPrice').textContent = prix + ' €';
+    clone.querySelector('.productPrice').textContent = prix/100 + ".00" + ' €';
     clone.querySelector('.productOption').textContent = option;
     
     document.querySelector('.newRow').appendChild(clone);

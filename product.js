@@ -22,7 +22,7 @@ const displayProduct = (data) => {
 
     document.querySelector('.card-title').textContent = data.name;
     document.querySelector('.card-text').textContent = data.description;
-    document.querySelector('.prix').textContent = "Prix : " + data.price + " €";
+    document.querySelector('.prix').textContent = "Prix : " + data.price/100 + ".00" + " €";
 
     for(len of data.lenses){
         let newOption = document.createElement('option')
