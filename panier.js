@@ -69,7 +69,7 @@ confirmation.addEventListener('submit', (e) => {
     let adressInput = document.querySelector('#inputAddress').value;
     let mailInput = document.querySelector('#inputMail').value;
     let villeInput = document.querySelector('#inputVille').value;
-    alert(villeInput)
+    
     let contact = {
         firstName: prenomInput,
         lastName: nomInput,
