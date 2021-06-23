@@ -18,7 +18,7 @@ let envoieProduit = [];
         let option = produitsPanier[i].option;
         let ids = produitsPanier[i].id;
         envoieProduit.push(ids)
-        console.log(envoieProduit)
+        
         
         displayProduitPanier(name, prix, option);
         

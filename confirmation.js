@@ -8,7 +8,7 @@ const getOrderFirstName = () => {
 
 const orderId = getOrderId();
 const orderName = getOrderFirstName();
-console.log(orderId)
+
 
 const orderTest = document.querySelector('.order');
 orderTest.textContent = orderId;

@@ -51,7 +51,6 @@ const stockerProduit = (data) => {
             option: productOption
         }
         
-        console.log(productId)
         if (localStorage.getItem('products') == null){
 
             let productAll = [];

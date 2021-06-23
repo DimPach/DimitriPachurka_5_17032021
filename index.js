@@ -5,7 +5,6 @@ fetch('http://localhost:3000/api/cameras')
     })
     .then(datas => {
         for(data of datas){
-            console.log(data);
             displayMain(data);
         }
     })
