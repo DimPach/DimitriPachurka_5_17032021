@@ -1,10 +1,10 @@
 // Récupération des informations des produits dans le panier // 
 let totalPrice = 0;
-for (var i in localStorage) {
+let envoieProduit = [];
 
-    try {
-        let produitsPanier = JSON.parse(localStorage.getItem(i));
-        let envoieProduit = [];
+for (var i in localStorage) {
+  try {
+    let produitsPanier = JSON.parse(localStorage.getItem(i));
         let name = null;
         let prix = null;
         let option = null;
@@ -12,44 +12,42 @@ for (var i in localStorage) {
         let quantity = null;
 
         for (let i = 0 ; i < produitsPanier.length ; i++) {
-                name = produitsPanier[i].nom;
-                prix = produitsPanier[i].prix;
-                option = produitsPanier[i].option;
-                ids = produitsPanier[i].id;
-                quantity += produitsPanier[i].Quantity;
-                envoieProduit.push(ids)
+            name = produitsPanier[i].nom;
+            prix = produitsPanier[i].prix;
+            option = produitsPanier[i].option;
+            ids = produitsPanier[i].id;
+            quantity += produitsPanier[i].Quantity;
+            envoieProduit.push(ids)
         }
 
         if (quantity != null) {
             displayProduitPanier(name, prix, option, quantity);
 
 // Logique select de la quantité + mise à jour dynamique du prix total //
-
-            const inputChange = document.querySelectorAll('.form-select')[i];
             const newPrice = document.querySelector('.totalPrice');
             let valeurQty = 1;  
 
-            // Prix total de la commande // 
-            totalPrice = totalPrice + prix;
+            // Prix total de la commande //
+            totalPrice = totalPrice + (prix * quantity);
             newPrice.textContent = totalPrice/100 + ".00" + ' €';
-
-            // Select de la quantitié (qui ne fonctionne pas) //
-            inputChange.addEventListener('change', event => {
             
-            totalPrice = totalPrice - (valeurQty * prix);
+            document.querySelectorAll('.productQuantity').forEach((listener, index) => 
+              listener.addEventListener('change', (event) => {
+                let actualQuantity = document.querySelectorAll('.productQuantity')[index].value
+                document.querySelectorAll('.productPrice')[index].textContent = (prix * actualQuantity)/100 + ".00" + ' €';
                 
-            valeurQty = event.target.value;
-                
-            totalPrice = totalPrice + (valeurQty * prix);
-                
-            newPrice.textContent = totalPrice/100 + ".00" + ' €';
-            })
+                totalPrice = totalPrice - (valeurQty * prix);
+                valeurQty = event.target.value;
+                totalPrice = totalPrice + (valeurQty * prix);
+                newPrice.textContent = totalPrice/100 + ".00" + ' €';
+              })
+            )
         }
-    } catch (error) {
-        
-    }
+  } catch (err) {
     
+  }
 }
+
 
 // Fonction display des produits du panier avec template//
 
@@ -58,9 +56,9 @@ function displayProduitPanier (name, prix, option, quantity) {
     const clone = document.importNode(tempPanier.content, true);
 
     clone.querySelector('.productName').textContent = name;
-    clone.querySelector('.productPrice').textContent = prix/100 + ".00" + ' €';
+    clone.querySelector('.productPrice').textContent = (prix * quantity)/100 + ".00" + ' €';
     clone.querySelector('.productOption').textContent = option;
-    clone.querySelector('.quantity').textContent = quantity;
+    clone.querySelector('.productQuantity').value = quantity;
     document.querySelector('.newRow').appendChild(clone); 
 }
 
@@ -77,7 +75,6 @@ confirmation.addEventListener('submit', (e) => {
 
     if (prenomInput.trim() != "" && nomInput.trim() != "" && adressInput.trim() != "" && mailInput.trim() != "" && villeInput.trim() != "") {
 
-    
         let contact = {
             firstName: prenomInput,
             lastName: nomInput,
@@ -85,7 +82,6 @@ confirmation.addEventListener('submit', (e) => {
             city: villeInput,
             email: mailInput,
         }   
-
 
         let params = {
             'contact': contact,
@@ -125,7 +121,3 @@ confirmation.addEventListener('submit', (e) => {
             alert("Veuillez indiquer votre ville s'il vous plait.")
     }
 })
-
-
-
-
