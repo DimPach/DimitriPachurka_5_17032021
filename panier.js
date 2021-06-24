@@ -60,9 +60,7 @@ function displayProduitPanier (name, prix, option, quantity) {
     clone.querySelector('.productName').textContent = name;
     clone.querySelector('.productPrice').textContent = prix/100 + ".00" + ' €';
     clone.querySelector('.productOption').textContent = option;
-    console.log(clone.querySelector('.productOption'))
     clone.querySelector('.quantity').textContent = quantity;
-    console.log(clone.querySelector('#form-select'))
     document.querySelector('.newRow').appendChild(clone); 
 }
 
