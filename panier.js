@@ -33,6 +33,7 @@ for (var i in localStorage) {
             
             document.querySelectorAll('.productQuantity').forEach((listener, index) => 
               listener.addEventListener('change', (event) => {
+                  console.log(prix)
                 let actualQuantity = document.querySelectorAll('.productQuantity')[index].value
                 document.querySelectorAll('.productPrice')[index].textContent = (prix * actualQuantity)/100 + ".00" + ' €';
                 
