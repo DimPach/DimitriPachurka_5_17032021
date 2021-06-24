@@ -17,6 +17,7 @@ fetch(`http://localhost:3000/api/cameras/${productId}`)
     console.log(err);
 })
 
+// Display avec template du produit choisis par le client // 
 
 const displayProduct = (data) => {
 
@@ -34,6 +35,7 @@ const displayProduct = (data) => {
 }
 
 
+// Fonction pour stocker les produits dans le localStorage // 
 
 const stockerProduit = (data) => {
     let btnProduct = document.querySelector('.btn');
@@ -45,22 +47,25 @@ const stockerProduit = (data) => {
     })
 
     btnProduct.addEventListener('click', () => {
-        
+        let idUnique = productId + productOption;
         let produitStock = {
             id: productId,
-            option: productOption
+            nom: data.name,
+            option: productOption,
+            prix: data.price, 
+            Quantity: 1,
         }
         
-        if (localStorage.getItem('products') == null){
+        if (localStorage.getItem(idUnique) == null){
 
             let productAll = [];
             productAll.push(produitStock);
-            localStorage.setItem('products', JSON.stringify(productAll));
+            localStorage.setItem(idUnique, JSON.stringify(productAll));
         } 
         else {
-            let tabProduct = JSON.parse(localStorage.getItem('products'));
+            let tabProduct = JSON.parse(localStorage.getItem(idUnique));
             tabProduct.push(produitStock);
-            localStorage.setItem('products', JSON.stringify(tabProduct));
+            localStorage.setItem(idUnique, JSON.stringify(tabProduct));
         }
     })
 
