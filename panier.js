@@ -37,12 +37,12 @@ for (var i in localStorage) {
                 let actualQuantity = document.querySelectorAll('.productQuantity')[index].value
                 let actualPrice = document.querySelectorAll('.productQuantity')[index].getAttribute('price')
                 console.log(actualPrice)
-                // document.querySelectorAll('.productPrice')[index].textContent = (prix * actualQuantity)/100 + ".00" + ' €';
+                document.querySelectorAll('.productPrice')[index].textContent = (actualPrice * actualQuantity)/100 + ".00" + ' €';
                 
-                // totalPrice = totalPrice - (valeurQty * prix);
-                // valeurQty = event.target.value;
-                // totalPrice = totalPrice + (valeurQty * prix);
-                // newPrice.textContent = totalPrice/100 + ".00" + ' €';
+                totalPrice = totalPrice - (valeurQty * actualPrice);
+                valeurQty = event.target.value;
+                totalPrice = totalPrice + (valeurQty * actualPrice);
+                newPrice.textContent = totalPrice/100 + ".00" + ' €';
               })
             )
         }
@@ -62,8 +62,8 @@ function displayProduitPanier (name, prix, option, quantity) {
     clone.querySelector('.productPrice').textContent = (prix * quantity)/100 + ".00" + ' €';
     clone.querySelector('.productOption').textContent = option;
     clone.querySelector('.productQuantity').value = quantity;
-    document.querySelector('input').setAttribute('price', prix);
-    console.log(document.querySelector('input').getAttribute('price'))
+    clone.querySelector('input').setAttribute('price', prix);
+    console.log(clone.querySelector('input').getAttribute('price'))
     document.querySelector('.newRow').appendChild(clone); 
 }
 // Logique confirmation du formulaire de commande avec validation // 
