@@ -34,14 +34,15 @@ for (var i in localStorage) {
             
             document.querySelectorAll('.productQuantity').forEach((listener, index) => 
               listener.addEventListener('change', (event) => {
-            
                 let actualQuantity = document.querySelectorAll('.productQuantity')[index].value
-                document.querySelectorAll('.productPrice')[index].textContent = (prix * actualQuantity)/100 + ".00" + ' €';
+                let actualPrice = document.querySelectorAll('.productQuantity')[index].getAttribute('price')
+                console.log(actualPrice)
+                // document.querySelectorAll('.productPrice')[index].textContent = (prix * actualQuantity)/100 + ".00" + ' €';
                 
-                totalPrice = totalPrice - (valeurQty * prix);
-                valeurQty = event.target.value;
-                totalPrice = totalPrice + (valeurQty * prix);
-                newPrice.textContent = totalPrice/100 + ".00" + ' €';
+                // totalPrice = totalPrice - (valeurQty * prix);
+                // valeurQty = event.target.value;
+                // totalPrice = totalPrice + (valeurQty * prix);
+                // newPrice.textContent = totalPrice/100 + ".00" + ' €';
               })
             )
         }
