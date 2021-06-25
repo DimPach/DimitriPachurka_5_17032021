@@ -22,7 +22,6 @@ for (var i in localStorage) {
 
         if (quantity != null) {
             displayProduitPanier(name, prix, option, quantity);
-            let price = document.querySelector('input').getAttribute('price');
 
 // Logique select de la quantité + mise à jour dynamique du prix total //
             const newPrice = document.querySelector('.totalPrice');
@@ -63,7 +62,6 @@ function displayProduitPanier (name, prix, option, quantity) {
     clone.querySelector('.productOption').textContent = option;
     clone.querySelector('.productQuantity').value = quantity;
     clone.querySelector('input').setAttribute('price', prix);
-    console.log(clone.querySelector('input').getAttribute('price'))
     document.querySelector('.newRow').appendChild(clone); 
 }
 // Logique confirmation du formulaire de commande avec validation // 
