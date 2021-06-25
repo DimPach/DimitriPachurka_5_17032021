@@ -22,6 +22,7 @@ for (var i in localStorage) {
 
         if (quantity != null) {
             displayProduitPanier(name, prix, option, quantity);
+            let price = document.querySelector('input').getAttribute('price');
 
 // Logique select de la quantité + mise à jour dynamique du prix total //
             const newPrice = document.querySelector('.totalPrice');
@@ -33,7 +34,7 @@ for (var i in localStorage) {
             
             document.querySelectorAll('.productQuantity').forEach((listener, index) => 
               listener.addEventListener('change', (event) => {
-                  console.log(prix)
+            
                 let actualQuantity = document.querySelectorAll('.productQuantity')[index].value
                 document.querySelectorAll('.productPrice')[index].textContent = (prix * actualQuantity)/100 + ".00" + ' €';
                 
@@ -45,7 +46,7 @@ for (var i in localStorage) {
             )
         }
   } catch (err) {
-    
+    console.log(err)
   }
 }
 
@@ -60,9 +61,10 @@ function displayProduitPanier (name, prix, option, quantity) {
     clone.querySelector('.productPrice').textContent = (prix * quantity)/100 + ".00" + ' €';
     clone.querySelector('.productOption').textContent = option;
     clone.querySelector('.productQuantity').value = quantity;
+    document.querySelector('input').setAttribute('price', prix);
+    console.log(document.querySelector('input').getAttribute('price'))
     document.querySelector('.newRow').appendChild(clone); 
 }
-
 // Logique confirmation du formulaire de commande avec validation // 
 
 const confirmation = document.querySelector('.needs-validation');
