@@ -51,8 +51,8 @@
                 <td class="productPrice">
                   <span class="actualPrice">
                     
-                  </span>
-                  .00 €
+                  </span>.00 €
+                  
                 </td>
               </tr>
             </template>
@@ -69,23 +69,23 @@
         <form class="row g-3 m-5 needs-validation" action="#">
           <div class="col-md-6">
             <label for="inputPrenom" class="form-label">Prénom</label>
-            <input type="text" class="form-control" id="inputPrenom" required>
+            <input type="text" minLength="1" class="form-control" id="inputPrenom" required>
           </div>
           <div class="col-md-6">
             <label for="inputNom" class="form-label">Nom</label>
-            <input type="text" class="form-control" id="inputNom" required>
+            <input type="text" minLength="1" class="form-control" id="inputNom" required>
           </div>
           <div class="col-12">
             <label for="inputAddress" class="form-label">Addresse de facturation</label>
-            <input type="text" class="form-control" id="inputAddress" required>
+            <input type="text" minLength="3" class="form-control" id="inputAddress" required>
           </div>
           <div class="col-md-6">
             <label for="inputVille" class="form-label">Ville</label>
-            <input type="text" class="form-control" id="inputVille" required>
+            <input type="text" minLength="1" class="form-control" id="inputVille" required>
           </div>
           <div class="col-md-6">
             <label for="inputMail" class="form-label">Adresse E-mail</label>
-            <input type="text" class="form-control" id="inputMail" required>  
+            <input type="email" class="form-control" id="inputMail" required>  
           </div>
           <input type="submit" class="btn btn-primary" value="Passer commande"/>
         </form>
