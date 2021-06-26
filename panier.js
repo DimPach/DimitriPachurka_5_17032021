@@ -2,52 +2,46 @@
 let totalPrice = 0;
 let envoieProduit = [];
 
-for (var i in localStorage) {
-  try {
-    let produitsPanier = JSON.parse(localStorage.getItem(i));
-        let name = null;
-        let prix = null;
-        let option = null;
-        let ids = null;
-        let quantity = null;
 
-        for (let i = 0 ; i < produitsPanier.length ; i++) {
-            name = produitsPanier[i].nom;
-            prix = produitsPanier[i].prix;
-            option = produitsPanier[i].option;
-            ids = produitsPanier[i].id;
-            quantity += produitsPanier[i].Quantity;
-            envoieProduit.push(ids)
-        }
-
-        if (quantity != null) {
-            displayProduitPanier(name, prix, option, quantity);
-
-// Logique select de la quantité + mise à jour dynamique du prix total //
-            const newPrice = document.querySelector('.totalPrice');
-            let valeurQty = 1;  
-
-            // Prix total de la commande //
-            totalPrice = totalPrice + (prix * quantity);
-            newPrice.textContent = totalPrice/100 + ".00" + ' €';
-            
-            document.querySelectorAll('.productQuantity').forEach((listener, index) => 
-              listener.addEventListener('change', (event) => {
-                let actualQuantity = document.querySelectorAll('.productQuantity')[index].value
-                let actualPrice = document.querySelectorAll('.productQuantity')[index].getAttribute('price')
-                console.log(actualPrice)
-                document.querySelectorAll('.productPrice')[index].textContent = (actualPrice * actualQuantity)/100 + ".00" + ' €';
-                
-                totalPrice = totalPrice - (valeurQty * actualPrice);
-                valeurQty = event.target.value;
-                totalPrice = totalPrice + (valeurQty * actualPrice);
-                newPrice.textContent = totalPrice/100 + ".00" + ' €';
-              })
-            )
-        }
-  } catch (err) {
-    console.log(err)
-  }
+for (let i = 0; i < localStorage.length; i++) {
+  
+  let produitsPanier = JSON.parse(localStorage[Object.keys(localStorage)[i]]);
+  let name = produitsPanier.nom;
+  let prix = produitsPanier.prix;
+  let option = produitsPanier.option;
+  let id = produitsPanier.id;
+  let quantity = produitsPanier.quantity;
+  
+  // Envoi dans tableau pour page de confirmation
+  envoieProduit.push(id)
+  
+  displayProduitPanier(name, prix, option, quantity);
+  
+  // Logique select de la quantité + mise à jour dynamique du prix total //
+  const newPrice = document.querySelector('.totalPrice');
+  
+  // Prix total de la commande //
+  totalPrice = totalPrice + (prix * quantity);
+  newPrice.textContent = totalPrice/100 + ".00" + ' €';
+  
+  document.querySelectorAll('.productQuantity')[i].addEventListener('change', (event) => {
+    let newQuantity = event.target.value
+    
+    // product price //
+    document.querySelectorAll('.actualPrice')[i].textContent = (prix * newQuantity)/100;
+    
+    //total price //
+    document.querySelectorAll('.actualPrice').forEach((price, index) => {
+      let actualPrice = parseFloat(price.innerHTML)
+      
+      if(index === 0) {
+        totalPrice = 0
+      }
+      
+      totalPrice = totalPrice + actualPrice
+      newPrice.textContent = totalPrice + ".00" + ' €';
+    })
+  })
 }
 
 
@@ -58,7 +52,7 @@ function displayProduitPanier (name, prix, option, quantity) {
     const clone = document.importNode(tempPanier.content, true);
 
     clone.querySelector('.productName').textContent = name;
-    clone.querySelector('.productPrice').textContent = (prix * quantity)/100 + ".00" + ' €';
+    clone.querySelector('.actualPrice').textContent = (prix * quantity)/100
     clone.querySelector('.productOption').textContent = option;
     clone.querySelector('.productQuantity').value = quantity;
     clone.querySelector('input').setAttribute('price', prix);

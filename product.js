@@ -53,21 +53,17 @@ const stockerProduit = (data) => {
             nom: data.name,
             option: productOption,
             prix: data.price, 
-            Quantity: 1,
+            quantity: 1,
         }
         
         if (localStorage.getItem(idUnique) == null){
-
-            let productAll = [];
-            productAll.push(produitStock);
-            localStorage.setItem(idUnique, JSON.stringify(productAll));
+            localStorage.setItem(idUnique, JSON.stringify(produitStock));
         } 
         else {
             let tabProduct = JSON.parse(localStorage.getItem(idUnique));
-            tabProduct.push(produitStock);
+            tabProduct.quantity = tabProduct.quantity + 1
             localStorage.setItem(idUnique, JSON.stringify(tabProduct));
         }
     })
 
 }
-
