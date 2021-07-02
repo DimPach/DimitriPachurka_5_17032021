@@ -69,19 +69,19 @@
         <form class="row g-3 m-5 needs-validation" action="#">
           <div class="col-md-6">
             <label for="inputPrenom" class="form-label">Prénom</label>
-            <input type="text" minLength="1" class="form-control" id="inputPrenom" required>
+            <input type="text" pattern="[A-z]{1,}" class="form-control" id="inputPrenom" required>
           </div>
           <div class="col-md-6">
             <label for="inputNom" class="form-label">Nom</label>
-            <input type="text" minLength="1" class="form-control" id="inputNom" required>
+            <input type="text" pattern="[A-z]{1,}" class="form-control" id="inputNom" required>
           </div>
           <div class="col-12">
-            <label for="inputAddress" class="form-label">Addresse de facturation</label>
-            <input type="text" minLength="3" class="form-control" id="inputAddress" required>
+            <label for="inputAddress" class="form-label">Adresse de facturation (numéro/adresse/code postal)</label>
+            <input type="text" pattern="^[#.0-9a-zA-Z\s,-]+$" class="form-control" id="inputAddress" required>
           </div>
           <div class="col-md-6">
             <label for="inputVille" class="form-label">Ville</label>
-            <input type="text" minLength="1" class="form-control" id="inputVille" required>
+            <input type="text" pattern="^[#.a-zA-Z\s,-]+$" class="form-control" id="inputVille" required>
           </div>
           <div class="col-md-6">
             <label for="inputMail" class="form-label">Adresse E-mail</label>
