@@ -59,3 +59,34 @@ li {
 footer {
     background-color: lightgrey;
 }
+
+
+@media (max-width: 768px){
+    .col-sm-3 {
+        flex: 0 0 auto;
+        width: 50% !important;
+        }
+
+    .col-sm-4 {
+        min-width: 50%;
+        }
+
+    .m-5 {
+        margin: 0rem !important;
+    }
+    
+    .jumbotron-fluid {
+        margin: 3rem !important;
+    }
+}
+
+@media (max-width: 400px){
+    .m-5 {
+        margin: 0rem !important;
+    }
+
+    .productPrice {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+}

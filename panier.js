@@ -39,7 +39,7 @@ for (let i = 0; i < localStorage.length; i++) {
       }
       
       totalPrice = totalPrice + actualPrice
-      newPrice.textContent = totalPrice + ".00" + ' €';
+      newPrice.textContent = totalPrice + ".00" + '€';
     })
   })
 }
