@@ -60,8 +60,13 @@ footer {
     background-color: lightgrey;
 }
 
+@media screen and (min-width: 991px) and (max-width: 1900px) {
+    .jumbotron-fluid {
+        margin: 3rem !important;
+    }
+}
 
-@media (max-width: 768px){
+@media screen and (min-width: 580px) and (max-width: 990px) {
     .col-sm-3 {
         flex: 0 0 auto;
         width: 50% !important;
@@ -80,9 +85,13 @@ footer {
     }
 }
 
-@media (max-width: 400px){
+@media screen and (min-width: 375px) and (max-width: 579px) {
     .m-5 {
         margin: 0rem !important;
+    }
+
+    .jumbotron-fluid {
+        margin: 2rem !important;
     }
 
     .productPrice {
